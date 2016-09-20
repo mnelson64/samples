@@ -1,0 +1,69 @@
+{{ 'jquery.dropdown.js' | asset_url | script_tag }}
+{{ 'workshop-mapV2.min.js' | asset_url | script_tag }}
+{% include 'shadowbox' %}
+{% include 'G-Remarketing-Tag' %}
+{% include 'avantlink' %}
+{% include 'mailchimp' %}
+{% include 'Adzerk' %}
+{% if template contains 'store' or template contains 'customize'%}
+	
+{% else %}
+	{% include 'bottom-bar' %}
+{% endif %}
+{% include 'instant-popup' %}
+
+{% if template != 'index' and template != 'cart' %}
+	{% include 'smart-banner-call' %}
+{% endif %}
+    
+<!--**************************************************
+****************** PRODUCT SCRIPTS *******************
+***************************************************-->
+
+{% if template contains 'product' or template contains 'store'%}
+  {{ "jquery.x-gallery.min.js" | asset_url | script_tag }}
+
+
+  <script type="text/javascript">
+    
+    // Terms shadowbox //
+    function toc(){ Shadowbox.open({ content: "/pages/toc-iframe", player: "iframe", height: 480, width: 600 }); };
+    // Terms shadowbox //
+    
+    $(document).ready(function(){       
+      // Add To Cart Button //
+      $('#button1').click(function(event){
+          if($('#tocChkBox1').is(':checked')){
+              $("#product-actions").submit();
+          }
+          else if (confirm("By clicking OK, you agree to the Terms and Conditions")) {
+              $('#tocChkBox1').attr('checked','checked');
+              $("#product-actions").submit();
+          }
+          else event.preventDefault();
+      });
+      // Add To Cart Button //
+      
+      // Financing & Other Models extra info //
+      copyHtml("#financing");
+      copyHtml("#other-models");
+      function copyHtml(target){ if ($(target).length){ $(target+"-copy").html($(target).html()); };};
+      // Financing & Other Models extra info //
+    });
+  </script>
+
+{% endif %}
+
+<!--***************** /PRODUCT SCRIPTS ****************-->
+
+
+<!--**************************************************
+********************* CART SCRIPTS *******************
+***************************************************-->
+
+{% if template == 'cart' or template contains 'customers'%}
+{% include 'shopify-cart' %}
+{% endif %}
+
+<!--***************** /CART SCRIPTS ***************-->
+
