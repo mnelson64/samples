@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+.adminTableItemHeading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333;
+}
+.background_approved {
+	background-color: #B7FFB7;
+}
+.background_pending {
+	background-color: #FFFFD3;
+}
+.background_dark {
+	background-color: #E7D7D1;
+}
+.background_lite {
+	background-color: #E2E9DC;
+}
+.selectItem {
+	float: left;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.selectLabel {
+	font-weight: bold;
+	float: left;
+	padding-right: 10px;
+	font-size: 12px;
+	text-align: right;
+}
+.tableContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333;
+}
+
